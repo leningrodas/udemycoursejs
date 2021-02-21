@@ -7,6 +7,7 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
     <style>
         body {
             background-color: lightgrey;
@@ -16,47 +17,47 @@
             background-image: url("https://media.giphy.com/media/q8IF03Iw8TxC0/source.gif");
             width: 100%;
         }
-        #weathercard{
+        #weatherCard{
             height: 18em;
             width: 18em;
             background: black;
             opacity: .7;
         }
-        .container-fluid{
-            background-image: url("photos/weather1_0.jpg");
-            width: 100%;
-        }
+        /*.container-fluid{*/
+        /*    background-image: url("photos/weather1_0.jpg");*/
+        /*    width: 100%;*/
+        /*}*/
     </style>
 </head>
 <body>
 <nav class="navbar navbar-light bg-dark">
   <span class="navbar-text d-flex ">
-      <h1 class="text-dark bg-light justify-content-center" >Welcome to the weathermap experiment</h1>
+      <h1 class="text-dark bg-light justify-content-center" >Welcome to the weather-map experiment</h1>
   </span>
 </nav>
 
 <div class="jumbotron">
     <h1 class="display-4">Welcome</h1>
-    <p class="lead">Up to date weather map for anywhere you can think of!</p>
+    <p class="lead">Check the weather on any location by dragging or searching for a city!</p>
     <hr class="my-4">
 
 </div>
 
 
 <hr>
-<span id="error"></span>
+<!--<span id="error"></span>-->
 <div>
-
     <input type="text" id="userInput" placeholder="City Name">
     <button id="submitWeather" class="btn btn-primary">Search City</button>
+</div>
+<div class="container-fluid flex-wrap ">
+    <div id="weatherCard" class="card justify-content-center flex-wrap"></div>
 </div>
 <hr>
 <div id='map' style='width: 100%; height: 600px;'></div>
 <pre id="coordinates" class="coordinates"></pre>
 <hr>
-<div class="container-fluid flex-wrap ">
-    <div id="weatherCard" class="card justify-content-center flex-wrap"></div>
-</div>
+
 
 
 

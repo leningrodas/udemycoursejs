@@ -2,12 +2,16 @@ $(document).ready(function () {
 
     mapboxgl.accessToken = mapboxToken;
 
-    var map = new mapboxgl.Map({
+    var mapobj = ({
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
         center: [-96.7969, 32.7763], // starting position [lng, lat]
         zoom: 10
     });
+
+    const map = mapboxgl.map(mapobj);
+
+
 
     $.get("https://api.openweathermap.org/data/2.5/onecall", {
         APPID: OPEN_WEATHER_APPID,
@@ -22,7 +26,7 @@ $(document).ready(function () {
     });
 
 
-    var currentMarkers = [];
+    const currentMarkers = [];
 
     function dropPin(coordinates){
         var marker = new mapboxgl.Marker()
@@ -35,7 +39,7 @@ $(document).ready(function () {
         map.on('click', function (e){
             dropPin(e.lngLat);
             console.log(e.lngLat);
-            retrieveWeather(e.lngLat.lng, e.lngLat.lat);
+            retrieveWeather(e.lngLat.lon, e.lngLat.lat);
         });
     }
 
@@ -73,7 +77,7 @@ $(document).ready(function () {
         var lngLat = dallasLocation.getLngLat();
         coordinates.style.display = 'block';
         coordinates.innerHTML =
-            'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+            'Longitude: ' + lngLat.lon + '<br />Latitude: ' + lngLat.lat;
         console.log(lngLat)
     }
 
@@ -85,27 +89,27 @@ $(document).ready(function () {
 
 
 
-    // $('#submitWeather').click(function() {
-    //     var city = $("#userInput").val();
-    //     if (city != '') {
-    //         $.get("http://api.openweathermap.org/data/2.5/weather", {
-    //             APPID: OPEN_WEATHER_APPID,
-    //             q: city,
-    //             units: "imperial"
-    //         }).done( function (data) {
-    //                 var widget = show(data);
-    //
-    //                 $("#map").html(widget);
-    //
-    //                 $("#city").val('');
-    //                 console.log(data);
-    //             }
-    //         );
-    //     } else {
-    //         $('#error').html('Field cannot be empty');
-    //     }
-    //
-    // });
+    $('#submitWeather').click(function() {
+        const city = $("#userInput").val();
+        if (city !== '') {
+            $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: OPEN_WEATHER_APPID,
+                q: city,
+                units: "imperial"
+            }).done( function (data) {
+                    var widget = show(data);
+
+                    $("#map").html(widget);
+
+                    $("#city").val('');
+                    console.log(data);
+                }
+            );
+        } else {
+            $('#error').html('Field cannot be empty');
+        }
+
+    });
 
 
 
