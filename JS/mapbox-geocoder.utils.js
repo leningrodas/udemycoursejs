@@ -42,7 +42,7 @@ function geocode(search, token) {
 function reverseGeocode(coordinates, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
-    return fetch(baseUrl + endPoint + coordinates.lon + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+    return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
         .then(function(res) {
             return res.json();
         })
