@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>WeatherMap</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
 
     <style>
         body {
@@ -54,11 +56,10 @@
     <div id="weatherCard" class="card justify-content-center flex-wrap"></div>
 </div>
 <hr>
-<div id='map' style='width: 100%; height: 600px;'></div>
+<div  id='map' style='width: 100%; height: 600px;'></div>
+
 <pre id="coordinates" class="coordinates"></pre>
 <hr>
-
-
 
 
 
@@ -74,9 +75,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script src="js/keys.js"></script>
 
-<script src="js/weather_map.js"></script>
-<script src="js/mapbox-geocoder.utils.js"></script>
+<script src="JS/keys.js"></script>
+<script src="JS/weather_map.js"></script>
+<script src="JS/mapbox-geocoder.utils.js"></script>
+
+
 </body>
 </html>

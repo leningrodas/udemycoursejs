@@ -1,16 +1,5 @@
 $(document).ready(function () {
 
-
-    "use strict";
-
-    //global variables for geolaction-- can be reused throughout the code
-    var userLat;
-    var userLong;
-    var originalUserLat;
-    var originalUserLong;
-    var userMarker = new mapboxgl.Marker({draggable: true});
-
-    //map
     mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
         container: 'map',
@@ -18,6 +7,19 @@ $(document).ready(function () {
         center: [-96.7969, 32.7763], // starting position [lng, lat]
         zoom: 10
     });
+
+
+
+    //global variables for geolaction-- can be reused throughout the code
+    var userLat;
+    var userLong;
+    var originalUserLat;
+    var originalUserLong;
+    var userMarker = new mapboxgl.Marker({setDraggable: true , addTo: map});
+
+    //map
+
+
 
 
 
@@ -47,7 +49,7 @@ $(document).ready(function () {
    // to get local weather
    function retrieveWeather(lat, long)
     {
-        $.get("https://api.openweathermap.org/data/2.5/onecall", {
+        $.get("https://api.openweathermap.org/data/2.5/forecast?q=&", {
             APPID: OPEN_WEATHER_APPID,
             lat: lat,
             lng: long,
@@ -66,7 +68,7 @@ $(document).ready(function () {
     function onDragEnd() {
         var lngLat = userMarker.getlngLat();
         userLat = lngLat.lat;
-        userLong = lngLat.long;
+        userLong = lngLat.lng;
         retrieveWeather(userLong, userLat);
         map.setCenter([userLong, userLat]);
         userMarker.setLngLat([userLong, userLat])
@@ -95,7 +97,7 @@ $(document).ready(function () {
         map.on('click', function (e){
             dropPin(e.LngLat);
             console.log(e.lngLat);
-            retrieveWeather(e.lngLat.lon, e.lngLat.lat);
+            retrieveWeather(e.lngLat.lng, e.lngLat.lat);
         });
     }
 
