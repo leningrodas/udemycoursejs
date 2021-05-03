@@ -7,7 +7,7 @@
 // console.log(document.querySelector('.guess').value);
 let answer = Math.trunc(Math.random()*20) + 1;
 let score = 20;
-
+let highscore;
 document.querySelector('.check').addEventListener('click', function (){
     const guess = Number(document.querySelector('.guess').value)
     console.log(guess, typeof guess);
@@ -18,7 +18,13 @@ document.querySelector('.check').addEventListener('click', function (){
         document.querySelector('.message').textContent = 'Correct GUESS!';
         document.querySelector('body').style.background = 'Green';
         document.querySelector('.number').textContent = answer;
-    } else if(guess > answer || guess < answer) {
+    } if(score > highscore) {
+        highscore = score;
+
+        document.querySelector('.highscore').textContent = highscore;
+
+    }
+    else if(guess > answer || guess < answer) {
         if (score > 1) {
 
         document.querySelector('body').style.background = 'red';
