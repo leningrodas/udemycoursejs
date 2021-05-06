@@ -1,0 +1,34 @@
+body{
+    background-color: #333333;
+}
+
+#loadingDiv{
+    width: 100%;
+    height: 100%;
+    top:20rem;
+    bottom: auto;
+    left: 0;
+    position: fixed;
+    display: block;
+    z-index: 99;
+    text-align: center;
+}
+
+.carousel-slide{
+    width: 50%;
+    height: 50%;
+    margin: auto;
+}
+.carousel-inner{
+    width: fit-content;
+    margin: auto;
+    height: fit-content;
+}
+
+
+img {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    object-fit: contain;
+}
