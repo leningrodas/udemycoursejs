@@ -37,5 +37,5 @@ btnroll.addEventListener('click', function (){
         player0El.classList.toggle('player--active');
         player1EL.classList.toggle('player--active');
     }
-
+df
 })
