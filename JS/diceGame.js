@@ -10,6 +10,12 @@ const btnroll = document.querySelector('.btn--roll');
 const btnhold = document.querySelector('.btn--hold');
 const player0El = document.querySelector('.player--0');
 const player1EL = document.querySelector('.player--1');
+const resetBtn = document.querySelector('.btn--new');
+
+//this way too reset the game, this would be my way. ill refactor according to the course.
+btnnew.addEventListener('click', function (){
+    window.location.reload();
+});
 
 score0EL.textContent = 0;
 scorer1EL.textContent = 0;
